@@ -24,9 +24,10 @@ object Versions {
     const val googleServicies = "4.2.0"
     const val kotlin = "1.3.21"
     const val anko = "0.10.8"
-    const val androidx = "1.1.0-alpha02"
-    const val lifecycle = "2.0.0"
-    const val ktx = "1.1.0-alpha04"
+    const val androidx = "1.1.0-alpha03"
+    const val media = "1.1.0-alpha02"
+    const val lifecycle = "2.1.0-alpha03"
+    const val ktx = "1.1.0-alpha05"
 
     const val navigation = "2.0.0-rc02"
 
@@ -39,6 +40,8 @@ object Versions {
     const val coroutines = "1.1.1"
 
     const val fresco = "1.13.0"
+    const val glide = "4.9.0"
+
     const val lottie = "3.0.0-beta1"
     const val decoro = "1.3.5"
     const val showhidepasswordedittext = "0.8"
@@ -82,6 +85,8 @@ object Libraries {
     // CORE
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     const val androidx = "androidx.appcompat:appcompat:${Versions.androidx}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.androidx}"
+    const val media = "androidx.media:media:${Versions.media}"
     const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
     const val lifecycle = "android.arch.lifecycle:extensions:${Versions.lifecycle}"
 
@@ -134,6 +139,7 @@ object Libraries {
     const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
     // FRESCO
     const val fresco = "com.facebook.fresco:fresco:${Versions.fresco}"
+    const val glide = "com.github.bumptech.glide:glide:4.9.0"
     // MATERIAL DIALOG
     const val materialDialog = "com.afollestad.material-dialogs:core:${Versions.materialDialog}"
 

@@ -1,8 +1,8 @@
-
 plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("android.extensions")
+    id("com.github.ben-manes.versions") version "0.21.0" // uses gradle depUp ; show old dependencies in terminal
 }
 
 android {
@@ -37,23 +37,25 @@ dependencies {
     implementation(project(":audio"))
 
     /** Kotlin  */
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.21")
+    implementation(Libraries.kotlin)
 
     /** AndroidX */
-    implementation("androidx.appcompat:appcompat:1.1.0-alpha03")
-    implementation("androidx.core:core-ktx:1.1.0-alpha05")
-
-    implementation("androidx.recyclerview:recyclerview:1.0.0")
-
-    /** AndroidX media */
-    implementation("androidx.media:media:1.1.0-alpha03")
+    implementation(Libraries.androidx)
+    implementation(Libraries.ktx)
 
     /** AndroidX Constraint Layout */
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+    implementation(Libraries.constraintLayout)
+
+    /** RecyclerView */
+    implementation(Libraries.recyclerView)
+
+    /** AndroidX media */
+    implementation(Libraries.media)
+
 
     /** AndroidX LifeCycle extention */
-    implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
+    implementation(Libraries.lifecycle)
 
-    // Glide dependencies
-    implementation("com.github.bumptech.glide:glide:4.9.0")
+    /** Glide */
+    implementation(Libraries.glide)
 }

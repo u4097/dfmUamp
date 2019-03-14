@@ -26,18 +26,19 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.21")
 
-    implementation("androidx.media:media:1.1.0-alpha02")
+    /** Kotlin  */
+    implementation(Libraries.kotlin)
+
+    /** AndroidX media */
+    implementation(Libraries.media)
+
+    /** Glide */
+    implementation(Libraries.glide)
 
     implementation("com.google.code.gson:gson:2.8.5")
 
-    // ExoPlayer dependencies
-
-    // This allows UAMP to utilize a local version of ExoPlayer, which is particularly
-    // useful for extending the MediaSession extension, as well as for testing and
-    // customization. If the ":exoplayer-library-core" project is included, we assume
-    // the others are included as well.
+    /** ExoPlayer */
     if (findProject(":exoplayer-library-core") != null) {
         api(project(":exoplayer-library-core"))
         api(project(":exoplayer-library-ui"))
@@ -48,8 +49,6 @@ dependencies {
         api("com.google.android.exoplayer:extension-mediasession:2.9.1")
     }
 
-    // Glide dependencies
-    api("com.github.bumptech.glide:glide:4.9.0")
 
     // Testing
     androidTestImplementation("androidx.test:runner:1.1.1")
