@@ -35,16 +35,23 @@ android {
 
 dependencies {
     implementation(project(":audio"))
-    implementation("androidx.appcompat:appcompat:1.1.0-alpha03")
 
-    implementation("androidx.media:media:1.1.0-alpha03")
-
+    /** Kotlin  */
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.21")
 
-//    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    /** AndroidX */
+    implementation("androidx.appcompat:appcompat:1.1.0-alpha03")
+    implementation("androidx.core:core-ktx:1.1.0-alpha05")
+
     implementation("androidx.recyclerview:recyclerview:1.0.0")
 
+    /** AndroidX media */
+    implementation("androidx.media:media:1.1.0-alpha03")
+
+    /** AndroidX Constraint Layout */
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+
+    /** AndroidX LifeCycle extention */
     implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
 
     // Glide dependencies
