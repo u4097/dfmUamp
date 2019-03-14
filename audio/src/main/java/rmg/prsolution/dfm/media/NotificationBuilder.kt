@@ -5,18 +5,12 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
-import androidx.annotation.RequiresApi
-import androidx.core.app.NotificationCompat
-import androidx.media.app.NotificationCompat.MediaStyle
-import androidx.media.session.MediaButtonReceiver
 import android.support.v4.media.session.MediaControllerCompat
 import android.support.v4.media.session.MediaSessionCompat
-import android.support.v4.media.session.PlaybackStateCompat.ACTION_PAUSE
-import android.support.v4.media.session.PlaybackStateCompat.ACTION_PLAY
-import android.support.v4.media.session.PlaybackStateCompat.ACTION_SKIP_TO_NEXT
-import android.support.v4.media.session.PlaybackStateCompat.ACTION_SKIP_TO_PREVIOUS
-import android.support.v4.media.session.PlaybackStateCompat.ACTION_STOP
-import rmg.prsolution.dfm.media.R
+import android.support.v4.media.session.PlaybackStateCompat.*
+import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
+import androidx.media.session.MediaButtonReceiver
 import rmg.prsolution.dfm.media.extensions.isPlayEnabled
 import rmg.prsolution.dfm.media.extensions.isPlaying
 import rmg.prsolution.dfm.media.extensions.isSkipToNextEnabled
@@ -77,11 +71,11 @@ class NotificationBuilder(private val context: Context) {
             builder.addAction(skipToNextAction)
         }
 
-        val mediaStyle = MediaStyle()
-                .setCancelButtonIntent(stopPendingIntent)
-                .setMediaSession(sessionToken)
-                .setShowActionsInCompactView(playPauseIndex)
-                .setShowCancelButton(true)
+        val mediaStyle = Notification.MediaStyle()
+//                .setCancelButtonIntent(stopPendingIntent)
+//                .setMediaSession(sessionToken)
+//                .setShowActionsInCompactView(playPauseIndex)
+//                .setShowCancelButton(true)
 
         return builder.setContentIntent(controller.sessionActivity)
                 .setContentText(description.subtitle)
@@ -90,7 +84,7 @@ class NotificationBuilder(private val context: Context) {
                 .setLargeIcon(description.iconBitmap)
                 .setOnlyAlertOnce(true)
                 .setSmallIcon(R.drawable.ic_notification)
-                .setStyle(mediaStyle)
+//                .setStyle(mediaStyle)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .build()
     }
