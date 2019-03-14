@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.example.android.uamp.media.R
+import rmg.prsolution.dfm.media.R
 import rmg.prsolution.dfm.media.extensions.album
 import rmg.prsolution.dfm.media.extensions.albumArt
 import rmg.prsolution.dfm.media.extensions.albumArtUri

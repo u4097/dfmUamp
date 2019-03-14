@@ -266,4 +266,4 @@ fun List<MediaMetadataCompat>.toMediaSource(
  * Custom property that holds whether an item is [MediaItem.FLAG_BROWSABLE] or
  * [MediaItem.FLAG_PLAYABLE].
  */
-const val METADATA_KEY_UAMP_FLAGS = "com.example.android.uamp.media.METADATA_KEY_UAMP_FLAGS"
+const val METADATA_KEY_UAMP_FLAGS = "rmg.prsolution.dfm.media.METADATA_KEY_UAMP_FLAGS"

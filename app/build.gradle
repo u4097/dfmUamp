@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
-        applicationId "com.example.android.uamp.next"
+        applicationId "rmg.prsolution.dfm.next"
         versionCode 1
         versionName "1.0"
 

@@ -19,7 +19,7 @@ import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaControllerCompat
 import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
-import com.example.android.uamp.media.R
+import rmg.prsolution.dfm.media.R
 import rmg.prsolution.dfm.media.extensions.flag
 import rmg.prsolution.dfm.media.library.BrowseTree
 import rmg.prsolution.dfm.media.library.JsonSource
