@@ -8,7 +8,7 @@ object AppVersion {
 
 
 object ApplicationId {
-    const val id = "ru.prsolution.winstrike"
+    const val id = "rmg.android.Dfm"
 }
 
 object Android {
