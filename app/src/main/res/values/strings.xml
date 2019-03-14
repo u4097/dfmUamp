@@ -7,4 +7,7 @@
     <string name="pause">Pause</string>
 
     <string name="menu_music_queue">Queue</string>
+
+    <string name="drawer_version_name">Name</string>
+    <string name="drawer_version_code">Code</string>
 </resources>

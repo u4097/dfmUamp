@@ -89,6 +89,8 @@ dependencies {
 
     /** Kotlin  */
     implementation(Libraries.kotlin)
+    /**  Coroutines */
+    implementation(Libraries.coroutinesKotlinAndroid)
 
     /** AndroidX */
     implementation(Libraries.androidx)
@@ -106,6 +108,28 @@ dependencies {
 
     /** AndroidX LifeCycle extention */
     implementation(Libraries.lifecycle)
+
+    /** Networkin */
+
+    // Retrofit
+    implementation(Libraries.retrofit)
+    implementation(Libraries.retrofitMock)
+    implementation(Libraries.retrofitCoroutines)
+    // OkHttp
+    implementation(Libraries.okhttp)
+    implementation(Libraries.okhttpLoging)
+    // Moshi
+    implementation(Libraries.moshi)
+
+    // Cache
+    implementation(Libraries.layercache)
+    implementation(Libraries.layercacheAndroid)
+    implementation(Libraries.layercacheLiveData)
+
+    /** DI */
+    implementation(Libraries.koinAndroid)
+    implementation( Libraries.koinViewModel)
+
 
     /** Glide */
     implementation(Libraries.glide)

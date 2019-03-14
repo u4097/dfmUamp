@@ -2,10 +2,14 @@ package rmg.prsolution.dfm
 
 import android.media.AudioManager
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import rmg.prsolution.dfm.media.MusicService
+import rmg.prsolution.dfm.AppConfiguration.getRootViewContainerFor
+import rmg.prsolution.dfm.AppConfiguration.riseAndShine
 import rmg.prsolution.dfm.utils.Event
 import rmg.prsolution.dfm.utils.InjectorUtils
 import rmg.prsolution.dfm.viewmodels.MainActivityViewModel
@@ -15,7 +19,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
+
+        val container: ViewGroup = getRootViewContainerFor(this)
+        val home: View = LayoutInflater.from(this).inflate(R.layout.activity_main, container, false)
+        container.addView(home)
+
+        // Wake up activity in devices on run
+        riseAndShine(this)
 
         // Since UAMP is a music player, the volume controls should adjust the music volume while
         // in the app.
