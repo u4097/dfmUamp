@@ -21,6 +21,7 @@ import retrofit2.mock.NetworkBehavior
 import rmg.prsolution.App
 import rmg.prsolution.dfm.AppConfiguration.DatasourceProperties.DEV_URL
 import rmg.prsolution.dfm.AppConfiguration.DatasourceProperties.MOCK_URL
+import rmg.prsolution.dfm.networking.ChannelApi
 import rmg.prsolution.dfm.utils.debugdrawer.VersionInfoModule
 import java.util.concurrent.TimeUnit
 
@@ -89,6 +90,12 @@ object AppConfiguration : KoinComponent {
     }
 
     // API Services
+    fun createChannelApi(): ChannelApi =
+            if (debugRetrofitConfig.currentEndpoint.isMock) {
+                MockChannelApi(mockRetrofit)
+            } else {
+                retrofit.create<ChannelApi>(ChannelApi::class.java)
+            }
 
     // Debug Drawer SetUp
     fun getRootViewContainerFor(activity: Activity): ViewGroup {
