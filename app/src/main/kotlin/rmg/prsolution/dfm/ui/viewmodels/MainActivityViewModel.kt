@@ -1,4 +1,4 @@
-package rmg.prsolution.dfm.viewmodels
+package rmg.prsolution.dfm.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,9 +8,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import android.support.v4.media.MediaBrowserCompat
 import android.util.Log
-import rmg.prsolution.dfm.MainActivity
-import rmg.prsolution.dfm.MediaItemData
-import rmg.prsolution.dfm.MediaSessionConnection
+import rmg.prsolution.dfm.ui.MainActivity
+import rmg.prsolution.dfm.ui.MediaItemData
+import rmg.prsolution.dfm.ui.MediaSessionConnection
 import rmg.prsolution.dfm.media.extensions.id
 import rmg.prsolution.dfm.media.extensions.isPlayEnabled
 import rmg.prsolution.dfm.media.extensions.isPlaying

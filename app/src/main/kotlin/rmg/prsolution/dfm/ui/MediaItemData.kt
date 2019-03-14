@@ -1,10 +1,10 @@
-package rmg.prsolution.dfm
+package rmg.prsolution.dfm.ui
 
 import android.net.Uri
 import android.support.v4.media.MediaBrowserCompat
 import androidx.recyclerview.widget.DiffUtil
 import android.support.v4.media.MediaBrowserCompat.MediaItem
-import rmg.prsolution.dfm.viewmodels.MediaItemFragmentViewModel
+import rmg.prsolution.dfm.ui.viewmodels.MediaItemFragmentViewModel
 
 /**
  * Data class to encapsulate properties of a [MediaItem].

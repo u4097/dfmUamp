@@ -1,4 +1,4 @@
-package rmg.prsolution.dfm
+package rmg.prsolution.dfm.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +9,12 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import rmg.prsolution.dfm.utils.InjectorUtils
-import rmg.prsolution.dfm.viewmodels.MainActivityViewModel
-import rmg.prsolution.dfm.viewmodels.MediaItemFragmentViewModel
+import rmg.prsolution.dfm.ui.viewmodels.MainActivityViewModel
+import rmg.prsolution.dfm.ui.viewmodels.MediaItemFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_mediaitem_list.list
 import kotlinx.android.synthetic.main.fragment_mediaitem_list.loadingSpinner
 import kotlinx.android.synthetic.main.fragment_mediaitem_list.networkError
+import rmg.prsolution.dfm.R
 
 /**
  * A fragment representing a list of MediaItems.
@@ -73,4 +74,4 @@ class MediaItemFragment : androidx.fragment.app.Fragment() {
     }
 }
 
-private const val MEDIA_ID_ARG = "rmg.prsolution.dfm.MediaItemFragment.MEDIA_ID"
+private const val MEDIA_ID_ARG = "rmg.prsolution.dfm.ui.MediaItemFragment.MEDIA_ID"

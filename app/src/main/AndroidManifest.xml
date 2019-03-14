@@ -16,7 +16,7 @@
     <!-- Enable instant app support -->
     <dist:module dist:instant="true"/>
 
-    <activity android:name="rmg.prsolution.dfm.MainActivity">
+    <activity android:name="rmg.prsolution.dfm.ui.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>

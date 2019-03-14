@@ -1,4 +1,4 @@
-package rmg.prsolution.dfm
+package rmg.prsolution.dfm.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_mediaitem.view.*
-import rmg.prsolution.dfm.MediaItemData.Companion.PLAYBACK_RES_CHANGED
+import rmg.prsolution.dfm.R
+import rmg.prsolution.dfm.ui.MediaItemData.Companion.PLAYBACK_RES_CHANGED
 
 /**
  * [RecyclerView.Adapter] of [MediaItemData]s used by the [MediaItemFragment].

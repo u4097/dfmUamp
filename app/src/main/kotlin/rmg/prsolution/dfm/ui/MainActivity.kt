@@ -1,4 +1,4 @@
-package rmg.prsolution.dfm
+package rmg.prsolution.dfm.ui
 
 import android.media.AudioManager
 import android.os.Bundle
@@ -10,9 +10,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import rmg.prsolution.dfm.AppConfiguration.getRootViewContainerFor
 import rmg.prsolution.dfm.AppConfiguration.riseAndShine
+import rmg.prsolution.dfm.R
 import rmg.prsolution.dfm.utils.Event
 import rmg.prsolution.dfm.utils.InjectorUtils
-import rmg.prsolution.dfm.viewmodels.MainActivityViewModel
+import rmg.prsolution.dfm.ui.viewmodels.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainActivityViewModel

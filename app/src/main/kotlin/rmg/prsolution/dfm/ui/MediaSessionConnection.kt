@@ -1,4 +1,4 @@
-package rmg.prsolution.dfm
+package rmg.prsolution.dfm.ui
 
 import androidx.lifecycle.MutableLiveData
 import android.content.ComponentName

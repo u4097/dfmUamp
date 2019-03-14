@@ -1,4 +1,4 @@
-package rmg.prsolution.dfm.viewmodels
+package rmg.prsolution.dfm.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,6 +14,10 @@ import android.support.v4.media.session.PlaybackStateCompat
 import rmg.prsolution.dfm.*
 import rmg.prsolution.dfm.media.extensions.id
 import rmg.prsolution.dfm.media.extensions.isPlaying
+import rmg.prsolution.dfm.ui.EMPTY_PLAYBACK_STATE
+import rmg.prsolution.dfm.ui.MediaItemData
+import rmg.prsolution.dfm.ui.MediaSessionConnection
+import rmg.prsolution.dfm.ui.NOTHING_PLAYING
 
 /**
  * [ViewModel] for [MediaItemFragment].
