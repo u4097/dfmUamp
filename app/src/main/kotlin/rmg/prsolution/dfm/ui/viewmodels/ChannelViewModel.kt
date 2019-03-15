@@ -13,14 +13,14 @@ import rmg.prsolution.dfm.utils.SingleLiveEvent
  */
 
 
-class ChannelViewModel constructor(val documentUseCase: ChannelUseCase) : AbstractViewModel() {
+class ChannelViewModel constructor(val channelUseCase: ChannelUseCase) : AbstractViewModel() {
 
-    val documents = SingleLiveEvent<Resource<ChannelResponse>>()
+    val channels = SingleLiveEvent<Resource<ChannelResponse>>()
 
     fun getChannels(refresh: Boolean = false) {
         scope.launch {
-            val response = documentUseCase.get(refresh)
-            documents.postValue(response)
+            val response = channelUseCase.get(refresh)
+            channels.postValue(response)
         }
     }
 
