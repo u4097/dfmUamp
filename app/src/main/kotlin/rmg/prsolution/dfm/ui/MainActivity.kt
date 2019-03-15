@@ -8,19 +8,26 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import org.jetbrains.anko.longToast
+import org.koin.androidx.viewmodel.ext.viewModel
 import rmg.prsolution.dfm.AppConfiguration.getRootViewContainerFor
 import rmg.prsolution.dfm.AppConfiguration.riseAndShine
 import rmg.prsolution.dfm.R
+import rmg.prsolution.dfm.data.repository.resouces.ResourceState
+import rmg.prsolution.dfm.di.loadAppModules
+import rmg.prsolution.dfm.ui.viewmodels.ChannelViewModel
+import rmg.prsolution.dfm.ui.viewmodels.MainActivityViewModel
 import rmg.prsolution.dfm.utils.Event
 import rmg.prsolution.dfm.utils.InjectorUtils
-import rmg.prsolution.dfm.ui.viewmodels.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: MainActivityViewModel
+    private lateinit var mMainVm: MainActivityViewModel
+    private val mChanelVm: ChannelViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
+        // Koin  DI init
+        loadAppModules()
 
         val container: ViewGroup = getRootViewContainerFor(this)
         val home: View = LayoutInflater.from(this).inflate(R.layout.activity_main, container, false)
@@ -29,11 +36,25 @@ class MainActivity : AppCompatActivity() {
         // Wake up activity in devices on run
         riseAndShine(this)
 
+        mChanelVm.channels.observe(this@MainActivity, Observer {
+            it?.let {
+                when (it.state) {
+                    ResourceState.LOADING -> {}
+                    ResourceState.ERROR -> {
+                    }
+                    ResourceState.SUCCESS -> {
+                        longToast("Channel list size: ${it.data?.items?.size}")
+                    }
+                }
+            }
+        })
+
+
         // Since UAMP is a music player, the volume controls should adjust the music volume while
         // in the app.
         volumeControlStream = AudioManager.STREAM_MUSIC
 
-        viewModel = ViewModelProviders
+        mMainVm = ViewModelProviders
                 .of(this, InjectorUtils.provideMainActivityViewModel(this))
                 .get(MainActivityViewModel::class.java)
 
@@ -42,7 +63,7 @@ class MainActivity : AppCompatActivity() {
          * and the UI connects to [MusicService], this will be updated and the app will show
          * the initial list of media items.
          */
-        viewModel.rootMediaId.observe(this@MainActivity, Observer<String> { rootMediaId ->
+        mMainVm.rootMediaId.observe(this@MainActivity, Observer<String> { rootMediaId ->
                     if (rootMediaId != null) {
                         navigateToMediaItem(rootMediaId)
                     }
@@ -53,7 +74,7 @@ class MainActivity : AppCompatActivity() {
          * Observe [MainActivityViewModel.navigateToMediaItem] for [Event]s indicating
          * the user has requested to browse to a different [MediaItemData].
          */
-        viewModel.navigateToMediaItem.observe(this, Observer {
+        mMainVm.navigateToMediaItem.observe(this, Observer {
             it?.getContentIfNotHandled()?.let { mediaId ->
                 navigateToMediaItem(mediaId)
             }
@@ -80,9 +101,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun isRootId(mediaId: String) = mediaId == viewModel.rootMediaId.value
+    private fun isRootId(mediaId: String) = mediaId == mMainVm.rootMediaId.value
 
     private fun getBrowseFragment(mediaId: String): MediaItemFragment? {
         return supportFragmentManager.findFragmentByTag(mediaId) as MediaItemFragment?
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mChanelVm.getChannels()
     }
 }

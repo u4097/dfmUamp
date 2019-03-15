@@ -89,6 +89,8 @@ dependencies {
 
     /** Kotlin  */
     implementation(Libraries.kotlin)
+    implementation(Libraries.anko)
+
     /**  Coroutines */
     implementation(Libraries.coroutinesKotlinAndroid)
 

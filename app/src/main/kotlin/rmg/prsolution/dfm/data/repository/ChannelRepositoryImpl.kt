@@ -28,9 +28,9 @@ class ChannelRepositoryImpl constructor(
         response.await().let {
             channelList = it
         }
-        channelList?.items.let {
+        channelList?.items?.let {
             if (!channelList?.items?.isEmpty()!!) {
-                Timber.d("Get channel from cache")
+                Timber.d("Get channel from cache. \n")
                 return Resource(ResourceState.SUCCESS, channelList)
             }
         }
