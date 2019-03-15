@@ -158,12 +158,14 @@ dependencies {
     // Material Dialog
     implementation(Libraries.materialDialog)
 
-    // TEST
 
+    /** TEST */
     // MOCK WEB SERVER
     testImplementation("com.squareup.okhttp:mockwebserver:2.7.5")
     // CORE TESTING
     testImplementation("android.arch.core:core-testing:1.1.1")
     // ROBOLECTRIC
     testImplementation("org.robolectric:robolectric:4.2")
+    //KOIN
+    testImplementation("org.koin:koin-test:2.0.0-beta-1")
 }

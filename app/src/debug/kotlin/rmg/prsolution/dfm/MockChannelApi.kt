@@ -4,8 +4,8 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.mock.BehaviorDelegate
 import retrofit2.mock.MockRetrofit
-import rmg.prsolution.dfm.model.ChannelResponse
-import rmg.prsolution.dfm.model.Item
+import rmg.prsolution.dfm.domain.model.ChannelResponse
+import rmg.prsolution.dfm.domain.model.Item
 import rmg.prsolution.dfm.networking.ChannelApi
 
 class MockChannelApi(mockRetrofit: MockRetrofit) : ChannelApi {

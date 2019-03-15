@@ -1,4 +1,4 @@
-package rmg.prsolution.dfm.model
+package rmg.prsolution.dfm.domain.model
 
 import com.squareup.moshi.Json
 

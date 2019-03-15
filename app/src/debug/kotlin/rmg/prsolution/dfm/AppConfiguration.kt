@@ -35,7 +35,7 @@ object AppConfiguration : KoinComponent {
 
     object DatasourceProperties {
         const val MOCK_URL = "http://localhost/mock/"
-        const val DEV_URL = "http://185.244.173.11/v0/"
+        const val DEV_URL = "https://dfm.ru/api/"
     }
 
 

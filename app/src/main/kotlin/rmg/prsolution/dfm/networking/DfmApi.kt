@@ -3,7 +3,7 @@ package rmg.prsolution.dfm.networking
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
-import rmg.prsolution.dfm.model.ChannelResponse
+import rmg.prsolution.dfm.domain.model.ChannelResponse
 
 /**
  * Created by Oleg Sitnikov
