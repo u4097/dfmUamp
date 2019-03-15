@@ -14,7 +14,6 @@ import rmg.prsolution.dfm.datasource.remote.ChannelRemoteDataSourceImpl
 import rmg.prsolution.dfm.domain.model.ChannelResponse
 import rmg.prsolution.dfm.domain.repository.ChannelRepository
 import rmg.prsolution.dfm.domain.usecases.ChannelUseCase
-import rmg.prsolution.dfm.networking.ChannelApi
 import rmg.prsolution.dfm.ui.viewmodels.ChannelViewModel
 
 fun loadAppModules() = loadModules
@@ -48,24 +47,22 @@ val repositoryModule: Module = module {
 // DATASOURCE (cache and remote)
 val dataSourceModule: Module = module {
     // Channel
-    single { ChannelRemoteDataSourceImpl(api = channelApi) as ChannelRemoteDataSource }
+    single { ChannelRemoteDataSourceImpl(channelApi = get()) as ChannelRemoteDataSource }
     single { ChannelCacheDataSourceImpl(cache = get(DOCUMENT_CACHE)) as ChannelCacheDataSource }
 
 }
 
-private val channelApi: ChannelApi = AppConfiguration.createChannelApi()
-
 // NETWORK API
 val networkModule: Module = module {
-    single { channelApi }
+    single { AppConfiguration.createChannelApi()}
 }
-
-private const val DOCUMENT_CACHE = "DOCUMENT_CACHE"
 
 // CACHE
 val cacheModule: Module = module {
     single(name = DOCUMENT_CACHE) { LruCache<ChannelResponse>() }
 }
+
+private const val DOCUMENT_CACHE = "DOCUMENT_CACHE"
 
 
 

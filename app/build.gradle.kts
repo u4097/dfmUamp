@@ -170,4 +170,5 @@ dependencies {
     testImplementation("org.robolectric:robolectric:4.2")
     //KOIN
     testImplementation("org.koin:koin-test:2.0.0-beta-1")
+    testImplementation ("junit:junit:4.12")
 }

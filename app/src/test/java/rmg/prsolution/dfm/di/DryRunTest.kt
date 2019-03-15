@@ -8,36 +8,48 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.koin.core.context.startKoin
-import org.koin.core.logger.Level
-import org.koin.dsl.module
 import org.koin.test.AutoCloseKoinTest
-import org.koin.test.inject
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import rmg.prsolution.App
 import java.util.concurrent.TimeUnit
 
 class DryRunTest : AutoCloseKoinTest() {
-    val okHttpClient: OkHttpClient by inject()
-    val retrofitClient: Retrofit by inject()
+    object DatasourceProperties {
+        const val MOCK_URL = "http://localhost/mock/"
+        const val DEV_URL = "https://dfm.ru/api/"
+    }
+//    val retrofit by inject<Retrofit>()
+//    val mockRetrofit by inject<MockRetrofit>()
+//    val mVm: ChannelViewModel by inject()
+//    val debugRetrofitConfig by inject<DebugRetrofitConfig>()
+
 
     @get:Rule
     val rule = InstantTaskExecutorRule()
 
-/*
-    val testOkHttp = koinApplication {
-        logger(Level.DEBUG)
-
-        module {
-            single{httpClient()}
-            single { retrofitClient(get()) }
-        }
-    }
-*/
-
     @Before
     fun before() {
+/*
+        startKoin {
+            logger(Level.DEBUG)
+
+            module {
+                viewModel { ChannelViewModel(channelUseCase = get()) as ChannelViewModel }
+                single {
+                    DebugRetrofitConfig(
+                            get(),
+                            listOf(
+                                    Endpoint("Mock", MOCK_URL, isMock = true),
+                                    Endpoint("Develop", DEV_URL, isMock = false)
+                            ),
+                            get()
+                    )
+                }
+            }
+        }
+*/
+
 
     }
 
@@ -45,15 +57,9 @@ class DryRunTest : AutoCloseKoinTest() {
     fun testRemoteConfiguration() {
         // Use remote web service with SERVER_URL property from koin.properties file
 
-        startKoin {
-            logger(Level.DEBUG)
+//        loadAppModules()
 
-            module {
-                single { httpClient() as OkHttpClient }
-                single { retrofitClient(get()) as Retrofit }
-            }
-        }
-
+//        mVm.getChannels()
     }
 
     @Test

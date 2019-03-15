@@ -7,12 +7,12 @@ import rmg.prsolution.dfm.domain.model.ChannelResponse
 import rmg.prsolution.dfm.networking.ChannelApi
 
 class ChannelRemoteDataSourceImpl constructor(
-    private val api: ChannelApi
+    private val channelApi: ChannelApi
 ) : ChannelRemoteDataSource, BaseRepository() {
 
     override suspend fun get(): Resource<ChannelResponse>? {
         val response = safeApiCall(
-            call = { api.getChannelAsync().await() },
+            call = { channelApi.getChannelAsync().await() },
             errorMessage = "Error Auth user"
         )
         return response

@@ -6,7 +6,8 @@ import com.squareup.leakcanary.LeakCanary
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin
-import rmg.prsolution.dfm.AppConfiguration.remoteDataSource
+import rmg.prsolution.dfm.AppConfiguration.retrofitConfigModule
+import rmg.prsolution.dfm.AppConfiguration.retrofitModule
 import rmg.prsolution.dfm.BuildConfig
 import timber.log.Timber
 import java.io.File
@@ -33,7 +34,7 @@ class App : Application() {
         // Unique initialization of Dependency Injection library to allow the use of application context
         startKoin { androidContext(this@App) }
 
-        loadKoinModules(remoteDataSource)
+        loadKoinModules(retrofitConfigModule,retrofitModule)
 
     }
 

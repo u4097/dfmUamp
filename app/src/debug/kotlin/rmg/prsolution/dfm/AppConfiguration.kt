@@ -30,6 +30,7 @@ import java.util.concurrent.TimeUnit
 object AppConfiguration : KoinComponent {
     private val httpLogger by inject<HttpLogger>()
     private val debugRetrofitConfig by inject<DebugRetrofitConfig>()
+
     private val retrofit by inject<Retrofit>()
     private val mockRetrofit by inject<MockRetrofit>()
 
@@ -40,21 +41,25 @@ object AppConfiguration : KoinComponent {
 
 
     // Network module
-    val remoteDataSource = module {
+    val retrofitConfigModule = module {
         single { HttpLogger(get()) }
         single { NetworkBehavior.create() }
-        single {
-            DebugRetrofitConfig(
-                get(),
-                listOf(
-                    Endpoint("Mock", MOCK_URL, isMock = true),
-                    Endpoint("Develop",DEV_URL , isMock = false)
-                ),
-                get()
+        single { DebugRetrofitConfig(
+                    get(),
+                    listOf(
+                            Endpoint("Mock", MOCK_URL, isMock = true),
+                            Endpoint("Develop", DEV_URL, isMock = false)
+                    ),
+                    get()
             )
         }
+
+    }
+
+    val retrofitModule = module {
+
         single { httpClient() }
-        single { retrofitClient(get()) }
+        single { retrofitClient(get(), debugRetrofitConfig.currentEndpoint.url) }
         single {
             MockRetrofit.Builder(get()).networkBehavior(get()).build()
         }
@@ -78,10 +83,9 @@ object AppConfiguration : KoinComponent {
     }
 
     // Retrofit
-    private fun retrofitClient(httpClient: OkHttpClient): Retrofit {
-        val currentEndpoint: Endpoint = debugRetrofitConfig.currentEndpoint
+    private fun retrofitClient(httpClient: OkHttpClient, baseUrl: String): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(currentEndpoint.url)
+            .baseUrl(baseUrl)
             .client(httpClient)
             .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
